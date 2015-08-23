@@ -1,11 +1,11 @@
 require "logstash/devutils/rspec/spec_helper"
-require "logstash/outputs/example"
+require "logstash/outputs/logio"
 require "logstash/codecs/plain"
 require "logstash/event"
 
-describe LogStash::Outputs::Example do
+describe LogStash::Outputs::LogIO do
   let(:sample_event) { LogStash::Event.new }
-  let(:output) { LogStash::Outputs::Example.new }
+  let(:output) { LogStash::Outputs::LogIO.new }
 
   before do
     output.register
