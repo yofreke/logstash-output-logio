@@ -39,8 +39,9 @@ class LogStash::Outputs::LogIO < LogStash::Outputs::Base
   # log.io server TCP port
   config :port, :validate => :number, :default => 28777
 
-  # log.io TCP message format
-  config :format, :default => "+log|%{@source}|%{@source_host}|%{@level}|%{@timestamp}: %{@message}\r\n"
+  # log.io TCP message format: +log|my_stream|my_node|info|message\r\n
+  # |%{type} |%{@timestamp} %{source_host}
+  config :format, :default => "+log|%{type}|%{host}|%{@timestamp}|%{message}\r\n"
 
   public
   def register
